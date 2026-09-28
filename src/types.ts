@@ -1,0 +1,11 @@
+export type Status = 'Belum dimulai'|'Berjalan'|'Tertunda'|'Selesai'|'Terverifikasi';
+export type Task={id:string;title:string;start:number;end:number;phase:number;week:string;function:string;pic:string;dependency:string;evidence:string;priority:'Kritis'|'Tinggi'|'Sedang';status:Status};
+export type GateItem={id:string;gate:30|60|90;label:string;checked:boolean;verified:boolean};
+export type Risk={id:string,title:string,impact:string,trigger:string,mitigation:string,owner:string,due:string,status:string};
+export type Incident={id:string,severity:'P1'|'P2'|'P3',reported:string,response:string,escalation:string,recovery:string,reconciliation:string};
+export type Person={id:string,role:string,name:string,transition:string,allocation:string,competency:string,primary:boolean,backup:string};
+export type Inventory={id:string,type:string,item:string,access:string,owner:string,secretLocation:string,verification:string};
+export type TestItem={id:string,type:string,unit:string,targetRto:string,targetRpo:string,actual:string,result:string};
+export type Backlog={id:string,module:string,priority:string,owner:string,estimate:string,dependency:string,status:Status};
+export type Decision={gate:30|60|90,value:''|'GO'|'GO terbatas'|'NO-GO',note:string};
+export type AppData={version:1,startDate:string,tasks:Task[],gates:GateItem[],decisions:Decision[],people:Person[],inventory:Inventory[],risks:Risk[],incidents:Incident[],tests:TestItem[],backlog:Backlog[],weeklyNotes:{obstacles:string;decisions:string;next:string}};
